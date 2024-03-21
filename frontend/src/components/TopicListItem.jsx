@@ -18,7 +18,7 @@ const TopicListItem = (props) => {
         </div>
       </li>
     ));
-    return <ul>{topicItem}</ul>;
+    return <div>{topicItem}</div>;
 };
 
 export default TopicListItem;
