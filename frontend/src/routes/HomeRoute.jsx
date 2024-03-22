@@ -37,7 +37,7 @@ const HomeRoute = () => {
         toggleFavourites={toggleFavourites}
         
       
-        />
+        
       
       <PhotoList
       alert={alert}

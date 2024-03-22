@@ -21,7 +21,7 @@ const PhotoDetailsModal = ({
     };
 
     const photo = similarPhotos.find((photo) => photo.id === selectedPhotoId);
-    console.log(similarPhotos);
+   
 
   return (
     <div className="photo-details-modal">
