@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import '../styles/HomeRoute.scss';
 import TopNavigationBar from "../components/TopNavigationBar";
 import PhotoList from "../components/PhotoList";
+import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 const HomeRoute = () => {
     const [alert, setAlert] = useState(false);
     const [favPhotos, setfavPhotos] = useState([]);
+    const [modalVisible, setModalVisible] = useState(false);
+  const [selectedPhotoId, setSelectedPhotoId] = useState(null);
   
     const toggleFavourites = (id) => {
       if (favPhotos.includes(id)) {
@@ -18,7 +21,15 @@ const HomeRoute = () => {
         });
       }
     };
-
+    const openPhotoModal = (id) => {
+        setSelectedPhotoId(id);
+        setModalVisible(true);
+      };
+    
+      const closeModal = () => {
+        setSelectedPhotoId(null);
+        setModalVisible(false);
+      };
   return (
     <div className="home-route">
        <TopNavigationBar />
@@ -26,13 +37,21 @@ const HomeRoute = () => {
         setAlert={setAlert}
         favPhotos={favPhotos}
         toggleFavourites={toggleFavourites}
+        
       
+        />
       
       PhotoList
         alert={alert}
         setAlert={setAlert}
         favPhotos={favPhotos}
         toggleFavourites={toggleFavourites}
+      {modalVisible && selectedPhotoId !== null && (
+        <PhotoDetailsModal
+          selectedPhotoId={selectedPhotoId}
+          setModalVisible={setModalVisible}
+        />
+      )}
       
     </div>
   );
