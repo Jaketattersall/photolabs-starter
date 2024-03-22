@@ -11,7 +11,8 @@ const PhotoList = (props) => {
 
 
     if (!props.modalVisible) {
-        props.openPhotoModal(id);
+        props.openPhotoModal();
+        props.setSelectedPhoto(id);
       }
       };
       
@@ -29,8 +30,9 @@ const PhotoList = (props) => {
           setSelectedPhotoId={props.setSelectedPhotoId}
           toggleFavourites={props.toggleFavourites}
           setModalVisible={props.setModalVisible}
-          onClick={() => handlePhotoClick(photo.id)}
+          onClick={handlePhotoClick}
           openPhotoModal={props.openPhotoModal}
+          onClosePhotoDetailsModal={props.onClosePhotoDetailsModal}
           
         />
       ))}
