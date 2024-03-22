@@ -46,16 +46,15 @@
   display: flex;
   font-size: 16px;
 }
-.align {
-    margin-left: 40px;
-    margin-top: 15px;
-    }
-    
-    .photo-details-modal__container{
+
+    .photo-details-modal__container {
       margin-left: 20px;
     }
     
-
+    .photo-details-modal__photo-fav-button {
+        margin-bottom: -45px;
+        margin-left: 30px;
+      }
 
 
 .photo-details-modal__header {
@@ -63,7 +62,7 @@
   font-weight: 500;
   color: #1e1e1e;
   margin-top: 34px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   width: 90%;
 }
 

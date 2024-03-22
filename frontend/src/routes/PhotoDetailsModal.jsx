@@ -6,6 +6,7 @@ import PhotoList from "components/PhotoList";
 import similarPhotos from "../mocks/photos.js";
 import PhotoFavButton from "../components/PhotoFavButton";
 import "../styles/PhotoFavButton.scss";
+import FavIcon from "../components/FavIcon";
 
 const PhotoDetailsModal = ({
     setModalVisible,
@@ -26,18 +27,32 @@ const PhotoDetailsModal = ({
    
 
   return (
-    <div>
+    <div className="photo-details-modal">
       <button
         className="photo-details-modal__close-button"
         onClick={closeModal}
       >
         <img src={closeSymbol} alt="close symbol" />
       </button>
-      <div className="photo-details-modal__image">
+      <div className="photo-details-modal__container">
+
+
+        {/* Display fav icon on modal full size photo */}
+
+        <div className="photo-details-modal__photo-fav-button">
+          <PhotoFavButton
+            alert={alert}
+            setAlert={setAlert}
+            favPhotos={favPhotos}
+            toggleFavourites={toggleFavourites}
+            id={selectedPhotoId}
+          />
+        </div>
 
         {/* Display full size photo */}
 
         <img src={photo.urls.full} className="photo-details-modal__image" />
+
         <PhotoFavButton
           alert={alert}
           setAlert={setAlert}
@@ -45,8 +60,8 @@ const PhotoDetailsModal = ({
           toggleFavourites={toggleFavourites}
           id={selectedPhotoId}
         />
-
-        <div className="photo-list__user-details align">
+         <div className="photo-list__user-details photo-list__user-details-align">
+       
           <img className="photo-list__user-profile" src={photo.user.profile} />
           <div className="photo-list__user-info">
             <span>{photo.user.name}</span>
@@ -55,7 +70,9 @@ const PhotoDetailsModal = ({
           </div>
         </div>
       </div>
-      <p className="photo-details-modal__header line">Similar Photos</p>
+      <p className="photo-details-modal__header photo-details-modal__line">
+        Similar Photos
+      </p>
 
       {/* Display similar photos */}
 
