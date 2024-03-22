@@ -21,6 +21,7 @@ const PhotoList = (props) => {
           toggleFavourites={props.toggleFavourites}
           setModalVisible={props.setModalVisible}
           onClick={() => handlePhotoClick(photo.id)}
+          setSelectedPhotoId={props.setSelectedPhotoId}
         />
       ))}
     </div>
