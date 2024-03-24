@@ -1,7 +1,7 @@
 import React from "react";
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
-import photos from "../mocks/photos";
+
 
 
 const PhotoList = (props) => {
@@ -16,10 +16,16 @@ const PhotoList = (props) => {
       }
       };
       
+  console.log(props.photos);
+
+  if (!props.photos || !Array.isArray(props.photos)) {
+    return <div className="photo-list">No photos to display.</div>;
+  }
+      
   return (
 
 <div className="photo-list">
-      {photos.map((photo) => (
+{props.photos.map((photo) => (
         <PhotoListItem
           alert={props.alert}
           setAlert={props.setAlert}

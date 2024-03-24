@@ -58,7 +58,7 @@ function reducer(state, action) {
     case ACTIONS.SET_TOPIC_DATA:
       return {
         ...state,
-        topicDataData: action.payload,
+        topicData: action.payload,
       };
     default:
       throw new Error(
@@ -93,6 +93,19 @@ const useApplicationData = () => {
       .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
   }, []);
 
+  // useEffect(() => {
+  //   fetch("/api/photos")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log("Fetched Photo Data:", data);
+  //       dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data });
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error Fetching Photo Data:", error);
+  //     });
+  // }, []);
+
+
   // Get topic data
   useEffect(() => {
     fetch("/api/topics")
@@ -108,6 +121,8 @@ const useApplicationData = () => {
       toggleFavourites,
       onClosePhotoDetailsModal,
       setSelectedPhoto,
+      photoData: state.photoData,
+      topicData: state.topicData,
     },
   };
 }
