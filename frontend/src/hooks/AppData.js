@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useEffect } from "react";
 
 // actions
 export const ACTIONS = {
@@ -8,10 +8,14 @@ export const ACTIONS = {
   SET_PHOTO_MODAL_VISIBLE: "SET_PHOTO_MODAL_VISIBLE",
   SET_PHOTO_MODAL_CLOSE: "SET_PHOTO_MODAL_CLOSE",
   TOGGLE_FAVORITE: "TOGGLE_FAVORITE",
+  SET_PHOTO_DATA: "SET_PHOTO_DATA",
+  SET_TOPIC_DATA: "SET_TOPIC_DATA",
 };
 
 // state data
 const initialState = {
+  photoData: [],
+  topicData: [],
   favPhotos: [],
   modalVisible: false,
   selectedPhotoId: null,
@@ -45,7 +49,16 @@ function reducer(state, action) {
       return {
         ...state,
         modalVisible: false,
-        // selectedPhotoId: null,
+    };
+    case ACTIONS.SET_PHOTO_DATA:
+      return {
+        ...state,
+        photoData: action.payload,
+      };
+    case ACTIONS.SET_TOPIC_DATA:
+      return {
+        ...state,
+        topicDataData: action.payload,
       };
     default:
       throw new Error(
@@ -73,6 +86,19 @@ const useApplicationData = () => {
   const setSelectedPhoto = (id) => {
     dispatch({ type: ACTIONS.SET_SELECTED_PHOTO_ID, payload: id || null });
   };
+  //Get photo data
+  useEffect(() => {
+    fetch("/api/photos")
+      .then((res) => res.json())
+      .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
+  }, []);
+
+  // Get topic data
+  useEffect(() => {
+    fetch("/api/topics")
+      .then(res => res.json())
+      .then(data => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }));
+  }, []);
 
   // Return the state and actions as an object
   return {
