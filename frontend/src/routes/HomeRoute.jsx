@@ -5,24 +5,26 @@ import PhotoDetailsModal from "routes/PhotoDetailsModal";
 import '../styles/HomeRoute.scss';
 import useApplicationData from "hooks/useApplicationData";
 
-const HomeRoute = (props) => {
-    const { photos, topics } = props;
+const HomeRoute = () => {
     const { state, actions } = useApplicationData();
     
       
   return (
     <div className="home-route">
+        {/* Navigation bar */}
+
        <TopNavigationBar />
        favPhotos={state.favPhotos}
         toggleFavourites={actions.toggleFavourites}
-        topics={props.topics}
-        
+        topics={state.topicData}
+        fetchPhotosByTopic={actions.fetchPhotosByTopic}
       
         
+      {/*Show photos */}
       
       <PhotoList
       favPhotos={state.favPhotos}
-      photos={props.photos}
+      photos={state.photoData}
       modalVisible={state.modalVisible}
       selectedPhotoId={state.selectedPhotoId}
       toggleFavourites={actions.toggleFavourites}
@@ -33,7 +35,7 @@ const HomeRoute = (props) => {
       {state.modalVisible && state.selectedPhotoId && (
 
         <PhotoDetailsModal
-        photos={props.photos}
+        photos={state.photoData}
         selectedPhotoId={state.selectedPhotoId}
         favPhotos={state.favPhotos}
         toggleFavourites={actions.toggleFavourites}

@@ -16,15 +16,14 @@ const PhotoList = (props) => {
       }
       };
       
-  console.log(props.photos);
-
-  if (!props.photos || !Array.isArray(props.photos)) {
-    return <div className="photo-list">No photos to display.</div>;
-  }
+ 
       
   return (
 
 <div className="photo-list">
+    
+    {/* Map through photos */}
+
 {props.photos.map((photo) => (
         <PhotoListItem
           alert={props.alert}

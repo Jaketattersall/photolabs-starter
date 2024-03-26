@@ -7,6 +7,7 @@ import '../styles/FavBadge.scss';
 const FavBadge = ({ selected, displayAlert }) => {
   return (
     <div className='fav-badge'>
+        {/* Display Favicon */}
        <FavIcon selected={selected} displayAlert={displayAlert} />
     </div>
   );

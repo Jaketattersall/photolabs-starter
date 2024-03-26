@@ -3,7 +3,6 @@ import React from 'react';
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from "components/PhotoList";
-//import similarPhotos from "../mocks/photos.js";
 import PhotoFavButton from "../components/PhotoFavButton";
 import "../styles/PhotoFavButton.scss";
 import useApplicationData from "../hooks/useApplicationData";
@@ -25,7 +24,6 @@ const PhotoDetailsModal = ({
       setModalVisible(false); // Close the modal
     };
 
-      // const photo = similarPhotos.find((photo) => photo.id === selectedPhotoId);
   const photo = photos.find((photo) => photo.id === selectedPhotoId);
 
    

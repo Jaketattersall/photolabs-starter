@@ -16,12 +16,15 @@ const PhotoListItem = (props) => {
           />
 
           <div>
+                    {/* Display full size photo image */}
           <img
           className="photo-list__image"
           src={photo.urls.full}
           onClick={() => props.onClick(photo.id)}
         />
           </div>
+          {/* Display user information */}
+          
           <div className="photo-list__user-details">
             <img className="photo-list__user-profile" src={photo.user.profile} />
             <div className="photo-list__user-info">
