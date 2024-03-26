@@ -7,6 +7,7 @@ const PhotoListItem = (props) => {
     const photo = prop.PhotoData;
     return (
         <div className="photo-list__item" key={photo.id}>
+            
           <PhotoFavButton
             alert={props.alert}
             setAlert={props.setAlert}
@@ -14,7 +15,7 @@ const PhotoListItem = (props) => {
             id={props.id}
             toggleFavourites={props.toggleFavourites}
           />
-
+   
           <div>
                     {/* Display full size photo image */}
           <img
@@ -24,7 +25,7 @@ const PhotoListItem = (props) => {
         />
           </div>
           {/* Display user information */}
-          
+
           <div className="photo-list__user-details">
             <img className="photo-list__user-profile" src={photo.user.profile} />
             <div className="photo-list__user-info">
