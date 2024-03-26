@@ -10,7 +10,7 @@ export const ACTIONS = {
   TOGGLE_FAVORITE: "TOGGLE_FAVORITE",
   SET_PHOTO_DATA: "SET_PHOTO_DATA",
   SET_TOPIC_DATA: "SET_TOPIC_DATA",
-  GET_PHOTOS_BY_TOPIC: "GET_PHOTOS_BY_TOPIC"
+  GET_PHOTOS_BY_TOPIC: "GET_PHOTOS_BY_TOPIC",
 };
 
 // state data
@@ -50,7 +50,7 @@ function reducer(state, action) {
       return {
         ...state,
         modalVisible: false,
-    };
+      };
     case ACTIONS.SET_PHOTO_DATA:
       return {
         ...state,
@@ -61,7 +61,7 @@ function reducer(state, action) {
         ...state,
         topicData: action.payload,
       };
-      case ACTIONS.GET_PHOTOS_BY_TOPIC:
+    case ACTIONS.GET_PHOTOS_BY_TOPIC:
       return {
         ...state,
         photoData: action.payload,
@@ -74,47 +74,53 @@ function reducer(state, action) {
 }
 
 const useApplicationData = () => {
-    const openPhotoModal = () => {
-        dispatch({ type: ACTIONS.SET_PHOTO_MODAL_VISIBLE });
-      };
-    
-      const onClosePhotoDetailsModal = () => {
-        dispatch({ type: ACTIONS.SET_PHOTO_MODAL_CLOSE });
-      };
+  const openPhotoModal = () => {
+    dispatch({ type: ACTIONS.SET_PHOTO_MODAL_VISIBLE });
+  };
+
+  const onClosePhotoDetailsModal = () => {
+    dispatch({ type: ACTIONS.SET_PHOTO_MODAL_CLOSE });
+  };
 
   const toggleFavourites = (id) => {
     if (state.favPhotos.includes(id)) {
-        dispatch({ type: ACTIONS.SET_FAV_PHOTO_REMOVED, payload: id });
+      dispatch({ type: ACTIONS.SET_FAV_PHOTO_REMOVED, payload: id });
     } else {
-        dispatch({ type: ACTIONS.SET_FAV_PHOTO_ADDED, payload: id });
+      dispatch({ type: ACTIONS.SET_FAV_PHOTO_ADDED, payload: id });
+    }
   };
 
   const setSelectedPhoto = (id) => {
     dispatch({ type: ACTIONS.SET_SELECTED_PHOTO_ID, payload: id || null });
   };
-    // Get photos by topics
+  // Get photos by topics
 
-    const fetchPhotosByTopic = (id) => {
-        fetch("/api/topics/photos/" + id)
-          .then((res) => res.json())
-          .then((data) => dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPIC, payload: data }));
-      };
+  const fetchPhotosByTopic = (id) => {
+    fetch("/api/topics/photos/" + id)
+      .then((res) => res.json())
+      .then((data) =>
+        dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPIC, payload: data })
+      );
+  };
 
   //Get photo data
 
   useEffect(() => {
     fetch("/api/photos")
       .then((res) => res.json())
-      .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
+      .then((data) =>
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data })
+      );
   }, []);
-
 
   // Get topic data
 
   useEffect(() => {
     fetch("/api/topics")
-      .then(res => res.json())
-      .then(data => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }));
+      .then((res) => res.json())
+      .then((data) =>
+        dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data })
+      );
   }, []);
 
   // Return the state and actions as an object
@@ -132,6 +138,6 @@ const useApplicationData = () => {
       fetchPhotosByTopic,
     },
   };
-}
+};
 
 export default useApplicationData;

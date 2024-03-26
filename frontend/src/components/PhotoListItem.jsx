@@ -15,14 +15,15 @@ const PhotoListItem = (props) => {
             id={props.id}
             toggleFavourites={props.toggleFavourites}
           />
+          
    
           <div>
                     {/* Display full size photo image */}
-          <img
-          className="photo-list__image"
-          src={photo.urls.full}
-          onClick={() => props.onClick(photo.id)}
-        />
+                <img
+                    className="photo-list__image"
+                    src={photo.urls.full}
+                    onClick={() => props.onClick(photo.id)}
+                />
           </div>
           {/* Display user information */}
 
@@ -33,7 +34,8 @@ const PhotoListItem = (props) => {
               <br />
               <span className="photo-list__user-location">{`${photo.location.city}, ${photo.location.country}`}</span>
             </div>
-   </div>
+         </div>
+     </div>
    );
-  {}
+  }
   export default PhotoListItem;
