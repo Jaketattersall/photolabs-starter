@@ -50,23 +50,23 @@ npm start
 ## Application Screenshots
 
 ### PhotoLabs Home Page
-![PhotoLabs Landing Page](./docs/photolabs_landingpage.png)
+![PhotoLabs Landing Page](frontend/docs/photolabs_landingpage.png)
 
 
 ### User can store one or many favourited photos globally and get notification alert in navigation bar
-![PhotoLabs: user can fav photos across app](./docs/photolabs_favPhoto_alert.png)
-![PhotoLabs: user can fav photos across app](./docs/photolabs_favPhotos_alert.png)
+![PhotoLabs: user can fav photos across app](frontend/docs/photolabs_favPhoto_alert.png)
+![PhotoLabs: user can fav photos across app](frontend/docs/photolabs_favPhotos_alert.png)
 
 
 ### User can preview larger image of clicked photo in modal view. The modal also reloads with new photo when user clicks on any similar / related picture. The favourite photos still stays stored across application
-![PhotoLabs modal display](./docs/photolabs_modal_state_favPhoto.png)
+![PhotoLabs modal display](frontend/docs/photolabs_modal_state_favPhoto.png)
 
 
 ###  Modal also displays related / similar photos.
-![PhotoLabs modal loads with related photos](./docs/photolabs_modal_loads_related_photos.png)
+![PhotoLabs modal loads with related photos](frontend/docs/photolabs_modal_loads_related_photos.png)
 
 
 ###  User can click on certain topic from navigation bar and app page loads with same category photos list. In example below photos against 'Nature' topic are displayed
-![PhotoLabs modal loads with related photos](./docs/photolabs_fetch_photos_by_topic.png)
+![PhotoLabs modal loads with related photos](frontend/docs/photolabs_fetch_photos_by_topic.png)
 
 ## Thankyou!❤️❤️❤️
