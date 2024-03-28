@@ -74,6 +74,7 @@ function reducer(state, action) {
 }
 
 const useApplicationData = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
   const openPhotoModal = () => {
     dispatch({ type: ACTIONS.SET_PHOTO_MODAL_VISIBLE });
   };
