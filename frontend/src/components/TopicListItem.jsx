@@ -12,14 +12,16 @@ const TopicListItem = (props) => {
   
     const topicItem = topics.map((topic) => (
       <li key={topic.id}
-       <div
         className="topic-list__item"
         onClick={() => topicHandler(topic.id)} // Pass the topic ID
       >
         <span>{topic.title}</span>
-        </div>
       </li>
     ));
-    return <div>{topicItem}</div>;
+    return (
+      <div>
+        {topicItem}
+      </div>
+    );
   };
 export default TopicListItem;
